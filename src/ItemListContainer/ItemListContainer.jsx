@@ -2,10 +2,15 @@ import React from 'react';
 import './ItemListContainer.css';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
+import { useNavigate } from 'react-router-dom';
 
 
 const ItemListContainer = ({ productsData }) => {
   /* console.log(productsData) */
+
+const navigate = useNavigate ();
+
+
   return (
     <div className="item-list-container" >
       {productsData.map((product)=>{
@@ -23,7 +28,7 @@ const ItemListContainer = ({ productsData }) => {
                   {"USD$"+ product.price}
                 </Card.Text>           
 
-                <Button variant="primary">Ver detalle de producto</Button>
+                <Button variant="primary" onClick={()=> navigate (`/item/${product.id}`)}>Ver detalle de producto</Button>
               </Card.Body>
             </Card>
             
