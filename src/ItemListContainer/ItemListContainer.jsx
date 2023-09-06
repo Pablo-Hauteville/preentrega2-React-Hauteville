@@ -5,22 +5,28 @@ import Card from 'react-bootstrap/Card';
 
 
 const ItemListContainer = ({ productsData }) => {
-  console.log(productsData)
+  /* console.log(productsData) */
   return (
-    <div className="item-list-container">
+    <div className="item-list-container" >
       {productsData.map((product)=>{
-         
+          
           return (
-            <Card style={{ width: '18rem' }}>
-              <Card.Img variant="top" src="holder.js/100px180" />
+            
+            <Card style={{ width: '18rem' }} key={product.id}>
+              <Card.Img variant="top" src={product.thumbnail} />
               <Card.Body>
                 <Card.Title>{product.title}</Card.Title>
                 <Card.Text>
                   {product.description}
                 </Card.Text>
-                <Button variant="primary">Ver detalle</Button>
+                <Card.Text>
+                  {"USD$"+ product.price}
+                </Card.Text>           
+
+                <Button variant="primary">Ver detalle de producto</Button>
               </Card.Body>
             </Card>
+            
           );
         
 
